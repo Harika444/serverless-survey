@@ -4,12 +4,7 @@ phases:
   install:
     runtime-versions:
        python: 3.7
-    #commands:
-      # - There are no build commands
-  pre_build:
-    commands:
-      - python -m pip install --upgrade pip.
   build:
     commands:
       - sam package --s3-bucket cf-templates-1sn9jbxojocwx-us-east-1 --output-template-file packaged-template.yaml --template-file template.yaml
-      - sam deploy --template-file packaged-template.yaml --stack-name survey --capabilities CAPABILITY_IAM
+      
