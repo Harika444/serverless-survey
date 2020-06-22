@@ -3,5 +3,5 @@ version: 0.2
 phases:
   build: 
     commands:
-      - zip -r build.zip ./serverless-survey/yaml/*.py ./serverless-survey/yattag/*.py *.py
-      - java -jar /veracode/veracode-wrapper.jar -action uploadandscan -vid 377e0f93e7771c79e81b147398cfba26 -vkey c0c24caf80bf6d431506998f6a7de7add43ff9312b6a645978f96f0b3805e4267fdabf116b363a0d2997d05cafb5a2796ae88e2497c795f7aaeebea77471fc97 -appname urbancodebuild -autoscan true -createprofile true -version $(date +%Y-%m-%d-%H:%M) -filepath build.zip
+      - zip -r build.zip *.py
+      - java -jar /veracode/veracode-wrapper.jar -action uploadandscan -vid 377e0f93e7771c79e81b147398cfba26 -vkey c0c24caf80bf6d431506998f6a7de7add43ff9312b6a645978f96f0b3805e4267fdabf116b363a0d2997d05cafb5a2796ae88e2497c795f7aaeebea77471fc97 -appname awsChallenge -autoscan true -createprofile true -version $(date +%Y-%m-%d-%H:%M) -filepath build.zip
