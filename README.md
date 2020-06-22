@@ -1,4 +1,4 @@
-# serverless-survey
+# serverless-survey...
 
 Thanks to this application, you will be to quickly generate your own serverless survey. Just fill out configuration file with questions which should be part of the survey and save your app. In just a few seconds, your survey will be available and you will be able to review results in DynamoDB table.
 
