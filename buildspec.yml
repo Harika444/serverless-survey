@@ -4,6 +4,10 @@ phases:
   install:
     runtime-versions:
        python: 3.7
+    commands:
+      - echo Entered the install phase...     
+      # Upgrade AWS CLI to the latest version
+      - pip install --upgrade aws-sam-cli
   build:
     commands:
       - sam package --s3-bucket cf-templates-1sn9jbxojocwx-us-east-1 --output-template-file packaged-template.yaml --template-file template.yaml
