@@ -1,0 +1,41 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: CloudFormation template for creating codebuild project to push source code to s3 bucket
+Parameters:
+  GitHubToken: 
+    NoEcho: true
+    Type: String
+    Description: 'Personal access token'
+    Default: 'cca6dd075a6bec655805bc7341541cc1802d362c'
+  CodeBuildArn:
+    Description: 'Role for codeBuild in codePipeline'
+    Type: String
+    Default: 'arn:aws:iam::940838980384:role/CodeBuildRole'
+  GitHubUrl:
+    Description: 'GitHub Url for respective application'
+    Type: String
+    Default: 'https://<host-name>/<user-name>/<repository-name>'
+ 
+  
+Resources:
+    
+  CodeBuildProjectS3:
+    Type: AWS::CodeBuild::Project
+    Properties:
+      Artifacts:
+        Type: no_artifacts
+      Environment:
+        ComputeType: BUILD_GENERAL1_SMALL
+        Image: yashaswini1234/veracodeimage2
+        Type: LINUX_CONTAINER
+      
+      Name: !Sub ${AWS::StackName}-CodeBuildProject
+      #change role arn
+      ServiceRole: !Ref CodeBuildArn
+      Source:
+        Type: GITHUB_ENTERPRISE
+        Auth:
+          Resource: !Ref GitHubToken
+          Type: OAUTH
+        Location: !Ref GitHubUrl
+        BuildSpec: buildspecs/Veracode-buildspec.yml
+      
