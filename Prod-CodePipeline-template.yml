@@ -76,20 +76,6 @@ Resources:
           Configuration:
             ProjectName: !Ref CodeBuildProject
           RunOrder: 1
-          
-      - Name: veracode
-        Actions:
-        - Name: Build
-          ActionTypeId:
-            Category: Build
-            Owner: AWS
-            Version: 1
-            Provider: CodeBuild
-          InputArtifacts:
-          - Name: BuildArtifacts
-          Configuration:
-            ProjectName: Dev-Author-Veracode-CodeBuildProject
-          RunOrder: 1
            
       - Name: CreateChangeSet
         Actions:
