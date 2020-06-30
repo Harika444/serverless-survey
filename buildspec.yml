@@ -10,7 +10,7 @@ phases:
       - pip install --upgrade aws-sam-cli
   build:
     commands:
-      - sam package --s3-bucket cf-templates-1sn9jbxojocwx-us-east-1 --output-template-file packaged-template.yaml --template-file template.yaml
+      - sam package --s3-bucket cf-templates-1ss44bnseato0-us-east-2 --output-template-file packaged-template.yaml --template-file template.yaml
 artifacts:
   files:
     - packaged-template.yaml
